@@ -1,7 +1,6 @@
-#include "main.h"
+
 #include <stdio.h>
 
-//1로 만들기
 int main() {
     int a;
     scanf("%d",&a);
@@ -13,6 +12,5 @@ int main() {
     printf("%d",a);
     return 0;
 }
-//
 
 
