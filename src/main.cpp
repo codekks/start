@@ -1,14 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int a;
-    scanf("%d",&a);
-    while(a!=1){
-        if(a%2==0)
-        a=a/2;
-        else if (a%2==1) a=a-1;
-    }
-    printf("%d",a);
+    int a,n;
+    scanf("%d/n",&a);
+    int array[a];
+    for(int i=0;i<a;i++) scanf("%d",array+i);
+    int max=array[0];
+    int min=array[0];
+    for (int j=1;j<=a;j++) {
+        if (array[j]>max) max=array[j];
+        else if (array[j]<min) min=array[j];
+        };
+    n=max*min;
+    printf("%d",n);
     return 0;
 }
 
