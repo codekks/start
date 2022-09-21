@@ -1,26 +1,42 @@
 #include <stdio.h>
 #include <math.h>
-int ang(int t){
-    int b1=log(t);
-    int b=floor(b1);
-    char s[b+1];
-    int c;
-    sprintf(s,"%d",t);
-    for (int i=0;i<b;i++)
-         if (s[i]>s[i+1]) {c=1;}
-         else break; c=0;
-    return c;
-    }
 
-int main() {
-    int n,count=1;
+/*int main(){
+    int n,a=0,b=1;
     scanf("%d",&n);
-    for(int a=1;a<=1000000;a++)
-        if (count==n) {break; printf("%d",a);}
-        else if (count!=n)
-            {if (ang(a)==1) count ++;}
+
     return 0;
+    for (int i=1;a<n;i++)
+
+        if (n<10) {printf("%d",n); break; }
+        
+        else if (n>=10) 
+        {
+            for (int j=0;j<i;j++) 
+            {
+
+                b=b*(10-j)/(j+1);
+                a=a+b;
+            }
+        }
+    if (a>=n) {a=a-b; printf("%d",a);}
+} */
+
+int main()
+{
+    int n, count = 10;
+    scanf("%d", &n);
+    if (n < 10)
+        printf("%d", n);
+    else if (n >= 10)
+        for (int i = 10; i < 1000000; i++)
+        {   int a = i;
+            if (count == n)
+                {break; printf("%d", i);}
+            while (a >= 10)
+            {
+                if (a % 10 < (a / 10) % 10)
+                count++;
+            }
+        }
 }
-
-
- 
