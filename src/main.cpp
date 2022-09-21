@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-
+#include <chrono>
 /*int main(){
     int n,a=0,b=1;
     scanf("%d",&n);
@@ -25,18 +25,31 @@
 int main()
 {
     int n, count = 10;
+
     scanf("%d", &n);
-    if (n < 10)
+    if (n <= 10)
         printf("%d", n);
-    else if (n >= 10)
-        for (int i = 10; i < 1000000; i++)
-        {   int a = i;
-            if (count == n)
-                {break; printf("%d", i);}
+    else if (n > 10) {
+        for (long int i = 11; i < 10000000000; i++)
+        {   
+            int result = 1;
+            long int a = i;
+            
             while (a >= 10)
             {
-                if (a % 10 < (a / 10) % 10)
+                if (a % 10 < (a / 10) % 10) {
+                    a=a/10; 
+                } else {
+                    result = 0;
+                    break;
+                }
+            }
+            if(result == 1) {
                 count++;
             }
+            if (i>987654321) {printf("-1");break;}
+            if (count == n)
+                {printf("%d", i);break;}
         }
+    }
 }
