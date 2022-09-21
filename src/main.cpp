@@ -13,9 +13,9 @@ int ang(int t){
     }
 
 int main() {
-    int n,count=0;
+    int n,count=1;
     scanf("%d",&n);
-    for(int a=0;a<=1000000;a++)
+    for(int a=1;a<=1000000;a++)
         if (count==n) {break; printf("%d",a);}
         else if (count!=n)
             {if (ang(a)==1) count ++;}
