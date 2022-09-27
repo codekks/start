@@ -3,19 +3,31 @@
 
 
 int main(){
-    int m,n;
-    scanf("%d %d",&m,&n);
-    int ang[n+1]={0,};
-    
-    for (int i=2;i*i<=n;i++)
-         if (ang[i]==0)
-             for (int j=i*i;j<=n;j+=i)
-                 ang[j]=1;
-    ang[1]=1;
-    for (int t=m;t<=n;t++)
-         if (ang[t]==0) printf("%d\n",t);
-    return 0;
-}
-
+    int n,count=9,a,result=1;
+    scanf("%d",&n);
+    if(n<10) printf("%d",n);
+    else if(n>=10){
+         for(int i=2;count<n;i++) {
+             a=0;
+             for (int u=1;u<=i;u++){
+                 a=a+pow(10,u)*u; count++;
+             }
+             if(count==n) printf("%d",a); break;
+             for(a;a<pow(10,i+1);a++){
+                 if(count==n) printf("%d",a); break;
+                 for(int j=1;j<i;j++){
+                     int t=a;
+                     if ((t % 10) < (t / 10) % 10) {
+                         t=t/10; result=1; 
+                        }
+                     else if((t % 10) >= (t / 10) % 10){
+                         a=a+pow(10,j)-a%pow(10,j); result=0; break;
+                        } 
+                    }
+                 if(result == 1) count++;
+                }
+            }
+        }
+    }
 
 
