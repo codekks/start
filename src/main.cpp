@@ -1,15 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 int main(){
-    int x,count;
-    double p;
+    int x,k,count=0;
     scanf("%d",&x);
-    for (double t=2.0;t<=10000;t++){
-         for(double k=1.0;k<t;k++){
-             p=k/(t-k);
-             count++;
-             if(x==count){break; printf("%f",p);}
-             }
+    for (int t=2;t<=10000;t++){
          if(x==count){break;}
-     }
+         k=1;
+         if(t%2==1)
+             for(;k<t;k++){
+                 count++;
+                 if(x==count){printf("%d/%d",k,t-k); break;}
+             }
+         else if (t%2==0)
+             for(;k<t;k++){
+                 count++;
+                 if(x==count){printf("%d/%d",t-k,k); break;}
+             }
+    }       
 }
+
+
