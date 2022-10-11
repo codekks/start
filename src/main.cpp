@@ -16,7 +16,7 @@ int main(){
                  count++;
                  if(x==count){printf("%d/%d",t-k,k); break;}
              }
-    }       
+    }        
 }
 
 
