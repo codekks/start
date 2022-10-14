@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 
 class Point {
   int x, y;
@@ -8,6 +10,8 @@ class Point {
       x=pos_x;
       y=pos_y;
   }
+ int X(){return x;}
+ int Y(){return y;}
 };
 
 class Geometry {
@@ -19,27 +23,27 @@ class Geometry {
   Geometry() {
     num_points = 0;
   }
-  void AddPoint() {
-     srand(time(NULL));
-     int random_x=rand()%100;
-     int random_y=rand()%100;
-     point_array[num_points ++] = new Point(rando   m_x, random_y);
+  void AddPoint(const Point &point) {
+   point_array[num_points ++] = new Point(point.x,point.y);
   }
   void PrintDistance();
   void PrintNumMeets();
-};
+  };
 
-void PrintDistance(int i,int j){
-  int distance=0;
-};
+
   
   
   int main(){
-      int i,j;
+      int i;
+      std::cin>>i;
+      Point point=Point(0,0);
       Geometry geometry; 
-      for (int t=0;t<100;t++){
-        geometry.AddPoint();
-      }
-  std::cin>>i>>j;
-  std::cout<<*geometry.point_array[i]
+      for (int t=0;t<i;t++){
+      srand(time(NULL));
+      int rand_x=rand()%100;
+      int rand_y=rand()%100;
+      Point(rand_x,rand_y);
+      Addpoint(point);
+
+     }
   }
