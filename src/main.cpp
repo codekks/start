@@ -32,9 +32,40 @@ class Geometry {
    xy[1]=point_array[a]->Y()-point_array[b]->Y();
    double d=sqrt(xy[0]*xy[0]+xy[1]*xy[1]);
    std::cout<<"distance between point"<<a<<" and point"<<b<<":"<<std::endl;
-   std::cout<<d<<std::endl; 
+   std::cout<<d<<std::endl;
   }
-  void PrintNumMeets();
+  void PrintNumMeets(int i){
+    int count=0,f1,f2,f3,f4,f5,c;
+    for(int f=0;f<i-1;f++){
+       for(int y=f+1;y<i;y++){
+         f1=point_array[f]->X()-point_array[y]->X();
+         f2=point_array[f]->Y()-point_array[y]->Y();
+         if(f1==0){
+           f3=0;}
+         else{
+         f3=f2/f1;}
+         c=point_array[f]->Y()-f3*point_array[f]->X();
+         for(int e=f+1;e<i-1;e++){
+         if(e==y){e++;}
+         else{
+           for(int g=f+2;g<i;g++)
+           if(g==y){g++;}
+           else{
+             f4=point_array[e]->X()*f3-point_array[e]->Y()+c;
+             f5=point_array[g]->X()*f3-point_array[g]->Y()+c;
+             if(f4*f5<=0){
+               count++;}
+             else{continue;}
+              
+             }
+           }
+         }
+        }
+      }
+    std::cout<<"NumMeets:"<<std::endl;
+    std::cout<<count<<std::endl;
+    };
+
   void PrintPoint(){
     std::cout<<"what point?"<<std::endl;
     int c;
@@ -85,6 +116,13 @@ class Geometry {
        std::cout<<"next:";
        std::cin>>p;
        geometry.PrintDistance(t,p);
+       break;
+     }
+     case 4:{
+       int i;
+       std::cout<<"How many points:"<<std::endl;
+       std::cin>>i;
+       geometry.PrintNumMeets(i);
        break;
      }
     }
