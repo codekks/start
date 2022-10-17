@@ -35,7 +35,7 @@ class Geometry {
    std::cout<<d<<std::endl;
   }
   void PrintNumMeets(int i){
-    int count=0,f1,f2,f3,f4,f5,c;
+    double count=0,f1,f2,f3,f4,f5,c;
     for(int f=0;f<i-1;f++){
        for(int y=f+1;y<i;y++){
          f1=point_array[f]->X()-point_array[y]->X();
@@ -120,13 +120,16 @@ class Geometry {
      }
      case 4:{
        int i;
-       std::cout<<"How many points:"<<std::endl;
+       std::cout<<"How many points did you put:"<<std::endl;
        std::cin>>i;
        geometry.PrintNumMeets(i);
        break;
      }
+       case 5:{
+      std::cout<<"put again!"<<std::endl;
+      break;
+     }
     }
-    if (j==5){break;}
   }
 }
 
