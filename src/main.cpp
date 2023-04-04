@@ -38,6 +38,32 @@ namespace Excel {
    string peek();
    bool empty();
   };
+  class Cell{
+    protected: 
+    int x,y;
+    Table* table;
+    string data;
+    public:
+    virtual string stringify();
+    virtual int to_numeric();
+
+    Cell(int x, int y, string data, Table* table);
+  };
+  class Table{
+    protected: 
+    Cell*** data_base;
+    int line_x, line_y;
+    public:
+    Table(line_x, line_y);
+    ~Table();
+
+    void add_cell(Cell* c, int x_, int y_);
+    int to_numeric(const string& s);
+    int to_numeric(int x_, int y_);
+    string stringify(const string& s);
+    string stringify(int row, int col);
+    virtual string print_table();
+  };
 }
 
 #include <utils.h>
@@ -86,5 +112,24 @@ namespace Excel{
      delete prev;
    }
  }
-
+ Cell::cell(string data, int x,int y, Table* table):data(data),x(x),y(y), table(table){}
+ string Cell::stringify(){return data;}
+ int Cell::to_numeric() { return 0; }
+ Table::table(int line_x, int line_y):line_x(line_x),line_y(line_y){
+   data_base= new Cell**[line_x];
+   for(int i=0;i<line_x;i++){
+     data_base[i]=new Cell*[line_y];
+     for(int j;j<line_y;j++)
+       data[i][j]=NULL;
+   }
+ }
+ Table::~Table(){
+   for(int i;i<line_x;i++){
+     for(int j;j<line_y;j++)
+       if(data_base[i][j]){delete data_base[i][j];}
+     delete data_base[i];
+   }
+   delete data_base[];
+ }
+ 
 }
