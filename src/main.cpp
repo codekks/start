@@ -131,5 +131,20 @@ namespace Excel{
    }
    delete data_base[];
  }
+ int Table::add_cell(Cell* c, int i, int j){
+   if(i<line_x&&j<line_y){
+     if(data_base[i][j]) delete data_base[i][j];
+     data_base[i][j]=c;
+   }
+ }
  
+ int Table::to_numeric(const string& s){
+   int i=s[0]-'a';
+   int j=atoi(s.c_str+1)-1;
+   if(i<line_x&&j<line_y){
+    if(data_base[i][j]) delete data_base[i][j];
+    data_base[i][j]->to_numeric;
+   }
+ }
+ int
 }
